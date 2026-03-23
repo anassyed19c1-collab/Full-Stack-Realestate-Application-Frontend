@@ -27,7 +27,7 @@ export interface Property {
   };
   features: {
     bedrooms: number;
-    bathrooms: boolean;
+    bathrooms: number;
     parking: boolean;
     furnished: boolean;
   };
