@@ -100,7 +100,7 @@ export default function SinglePropertyPage() {
                 <button
                   key={index}
                   onClick={() => setActiveImage(index)}
-                  className={`relative h-16 w-16 rounded-lg overflow-hidden flex-shrink-0 border-2 ${
+                  className={`relative h-16 w-16 rounded-lg overflow-hidden border-2 ${
                     activeImage === index
                       ? "border-gray-900"
                       : "border-transparent"
