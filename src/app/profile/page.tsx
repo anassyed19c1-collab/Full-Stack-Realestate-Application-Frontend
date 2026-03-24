@@ -42,10 +42,12 @@ export default function ProfilePage() {
     }
   }, [mounted, isAuthenticated, router]);
 
-  // Get profile — hamesha call hoga
+
+
+  // Get profile — always fetch fresh data when component mounts or after profile update
   const { data: profileData, isLoading } = useQuery({
     queryKey: ["profile"],
-    enabled: mounted && isAuthenticated, // sirf tab fetch karo jab ready ho
+    enabled: mounted && isAuthenticated, // only fetch if mounted and authenticated
     queryFn: async () => {
       const response = await api.get<ApiResponse<User>>("/api/auth/profile");
       return response.data.data;
@@ -70,6 +72,13 @@ export default function ProfilePage() {
     },
   });
 
+
+
+
+
+
+
+
   const {
     register,
     handleSubmit,
@@ -86,7 +95,11 @@ export default function ProfilePage() {
     updateProfile(data);
   };
 
-  // Mounting se pehle kuch mat dikhao
+
+
+
+
+  
   if (!mounted) return null;
 
   if (isLoading) {
@@ -98,6 +111,12 @@ export default function ProfilePage() {
     );
   }
 
+
+
+
+
+
+  
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
@@ -118,6 +137,7 @@ export default function ProfilePage() {
         >
           Profile Info
         </button>
+
         <button
           onClick={() => setActiveTab("wishlist")}
           className={`px-4 py-2 text-sm font-medium transition-colors ${
@@ -176,6 +196,7 @@ export default function ProfilePage() {
                     id="name"
                     {...register("name")}
                     className={errors.name ? "border-red-500" : ""}
+                    placeholder="Update your name ..."
                   />
                   {errors.name && (
                     <p className="text-red-500 text-xs">
@@ -187,7 +208,7 @@ export default function ProfilePage() {
                   <Label htmlFor="phone">Phone</Label>
                   <Input
                     id="phone"
-                    placeholder="03001234567"
+                    placeholder="Update your phone number ..."
                     {...register("phone")}
                   />
                 </div>
