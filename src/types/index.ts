@@ -5,7 +5,7 @@ export interface User {
   role: "user" | "admin";
   phone: string;
   profileImage: string;
-  wishlist: string[];
+  wishlist: string[] | Property[];
   isActive: boolean;
   createdAt: string;
 }
