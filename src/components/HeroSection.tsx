@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -39,7 +39,7 @@ export default function HeroSection() {
             className={
               tab === "buy"
                 ? "bg-white text-black"
-                : "border-gray-500 text-gray-300 hover:bg-gray-800"
+                : "border-gray-500 text-gray-400 hover:bg-gray-800"
             }
           >
             Buy
@@ -51,7 +51,7 @@ export default function HeroSection() {
             className={
               tab === "rent"
                 ? "bg-white text-black"
-                : "border-gray-500 text-gray-300 hover:bg-gray-800"
+                : "border-gray-500 text-gray-400 hover:bg-gray-800 hover:text-white"
             }
           >
             Rent

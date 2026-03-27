@@ -36,12 +36,12 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <Button
             variant="outline"
-            className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white"
+            className="border-white text-black hover:bg-black hover:text-white"
           >
             Login
           </Button>
 
-          <Button className="bg-white text-black hover:bg-gray-200">
+          <Button className="bg-white text-black hover:bg-black hover:text-white border-white">
             Post Property
           </Button>
         </div>

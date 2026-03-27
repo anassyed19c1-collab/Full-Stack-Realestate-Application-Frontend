@@ -40,7 +40,7 @@ export default function FeaturedProperties() {
           {properties.map((property) => (
             <Card
               key={property.id}
-              className="bg-gray-900 border-gray-800 overflow-hidden hover:shadow-xl transition duration-300"
+              className="bg-black border-gray-800 overflow-hidden hover:shadow-xl transition duration-300"
             >
               {/* Image */}
               <img
