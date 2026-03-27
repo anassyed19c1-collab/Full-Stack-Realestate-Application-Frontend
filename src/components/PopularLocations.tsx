@@ -43,7 +43,7 @@ export default function PopularLocations() {
               onClick={() =>
                 router.push(`/properties?city=${loc.name.toLowerCase()}`)
               }
-              className="relative h-[320px] rounded-3xl overflow-hidden cursor-pointer group"
+              className="relative h-80 rounded-3xl overflow-hidden cursor-pointer group"
             >
               {/* Image */}
               <img
@@ -52,7 +52,7 @@ export default function PopularLocations() {
               />
 
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent"></div>
 
               {/* Glass Effect Layer */}
               <div className="absolute inset-0 bg-white/5 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition"></div>
