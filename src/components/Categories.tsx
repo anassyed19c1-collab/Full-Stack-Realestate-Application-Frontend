@@ -59,7 +59,7 @@ export default function Categories() {
                   </h3>
 
                   {/* Subtle line */}
-                  <div className="w-10 h-[2px] bg-white/30 mt-3"></div>
+                  <div className="w-10 h-0.5 bg-white/30 mt-3"></div>
                 </CardContent>
               </Card>
             );

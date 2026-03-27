@@ -3,9 +3,6 @@ import { Button } from "@/components/ui/button";
 export default function CTA() {
   return (
     <section className="py-24 bg-white flex flex-col items-center justify-center text-center px-6 relative">
-      
-      {/* Background overlay for subtle glass effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-gray-800/40 via-gray-900/50 to-black/40 -z-10"></div>
 
       {/* Heading */}
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
