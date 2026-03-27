@@ -1,108 +1,51 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import useAuthStore from "@/lib/auth";
 
 export default function Navbar() {
-    const { user, isAuthenticated, logout } = useAuthStore();
-    const router = useRouter();
+  return (
+    <header className="w-full border-b border-gray-800 bg-black sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        
+        {/* Logo */}
+        <h1 className="text-xl font-bold text-white cursor-pointer">
+          EstatePro
+        </h1>
 
-    const handleLogout = () => {
-        logout();
-        router.push("/login");
-    };
-
-    return (
-        <nav className="border-b bg-white sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16">
-
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center space-x-2">
-                        <span className="text-2xl font-bold text-gray-900">
-                            🏠 RealEstate
-                        </span>
-                    </Link>
-
-                    {/* Navigation Links */}
-                    <div className="hidden md:flex items-center space-x-6">
-                        <Link
-                            href="/properties"
-                            className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-                        >
-                            Properties
-                        </Link>
-                        {user?.role === "admin" && (
-                            <Link
-                                href="/admin"
-                                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-                            >
-                                Dashboard
-                            </Link>
-                        )}
-                    </div>
-
-                    {/* Auth Buttons */}
-                    <div className="flex items-center space-x-3">
-                        {!isAuthenticated ? (
-                            <>
-                                <Button variant="ghost" asChild>
-                                    <Link href="/login">Sign In</Link>
-                                </Button>
-                                <Button asChild>
-                                    <Link href="/register">Register</Link>
-                                </Button>
-                            </>
-                        ) : (
-                            <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    <button className="flex items-center space-x-2 focus:outline-none">
-                                        <Avatar className="h-8 w-8">
-                                            <AvatarFallback className="bg-gray-900 text-white text-sm">
-                                                {user?.name?.charAt(0).toUpperCase()}
-                                            </AvatarFallback>
-                                        </Avatar>
-                                        <span className="text-sm font-medium text-gray-700 hidden md:block">
-                                            {user?.name}
-                                        </span>
-                                    </button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end" className="w-48">
-                                    <DropdownMenuItem asChild>
-                                        <Link href="/profile">My Profile</Link>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem asChild>
-                                        <Link href="/profile?tab=wishlist">My Wishlist</Link>
-                                    </DropdownMenuItem>
-                                    {user?.role === "admin" && (
-                                        <DropdownMenuItem asChild>
-                                            <Link href="/admin">Admin Dashboard</Link>
-                                        </DropdownMenuItem>
-                                    )}
-                                    <DropdownMenuSeparator />
-                                    <DropdownMenuItem
-                                        onClick={handleLogout}
-                                        className="text-red-500 cursor-pointer"
-                                    >
-                                        Logout
-                                    </DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
-                        )}
-                    </div>
-
-                </div>
-            </div>
+        {/* Nav Links */}
+        <nav className="hidden md:flex gap-8 text-sm font-medium text-gray-300">
+          <Link href="/" className="hover:text-white">
+            Home
+          </Link>
+          <Link href="#" className="hover:text-white">
+            Buy
+          </Link>
+          <Link href="#" className="hover:text-white">
+            Rent
+          </Link>
+          <Link href="#" className="hover:text-white">
+            Projects
+          </Link>
+          <Link href="#" className="hover:text-white">
+            Contact
+          </Link>
         </nav>
-    );
+
+        {/* Buttons */}
+        <div className="flex items-center gap-3">
+          <Button
+            variant="outline"
+            className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white"
+          >
+            Login
+          </Button>
+
+          <Button className="bg-white text-black hover:bg-gray-200">
+            Post Property
+          </Button>
+        </div>
+      </div>
+    </header>
+  );
 }
