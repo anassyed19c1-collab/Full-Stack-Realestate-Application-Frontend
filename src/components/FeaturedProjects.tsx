@@ -29,7 +29,7 @@ const projects = [
 
 export default function FeaturedProjects() {
   return (
-    <section className="py-28 bg-black text-white">
+    <section className="py-28 bg-black text-white mt-0.5">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}
